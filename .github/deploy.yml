@@ -11,23 +11,23 @@ jobs:
 
     steps:
       - name: Chekout
-      uses: actions/checkout@v3
+        uses: actions/checkout@v3
 
       - name: Configurar Python
-      uses: actions/setup-python@v4
-      with: 
-        python-version:"3.11"
+        uses: actions/setup-python@v4
+        with: 
+          python-version:"3.11"
 
       -name: instalar libs
-      run: |
-        pip install -r requirements.txt
+        run: |
+          pip install -r requirements.txt
 
       -name: validação da instalacao
-      run: |
-        python - << 'EOF'
-        import fastapi
-        print(FastAPI OK)
-        EOF
+        run: |
+          python - << 'EOF'
+          import fastapi
+          print(FastAPI OK)
+          EOF
 
       -name: Build
-      run: docker build -t app-exemplo .
+        run: docker build -t app-exemplo .
